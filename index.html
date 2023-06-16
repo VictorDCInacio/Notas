@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(17, 16, 15);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        .regras{
+            width: 100vw;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .inputArea{
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            align-items: center;
+            padding: 50px;
+            justify-content: center;
+        }
+
+        h2{
+            font-size: 40px;
+        }
+
+        label{
+            border: solid 1px #fff;
+            border-bottom: 0px;
+            padding: 12px;
+        }
+
+        input{
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            color: rgb(17, 16, 15);
+            text-align: center;
+            border: none;
+            
+            
+        }
+
+        button{
+            width: 85px;
+            height: 35px;
+            cursor: pointer;
+            background-color: transparent;
+            border: solid 1px #fff;
+            color: #fff;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            transform: scale(110%);
+        }
+
+        .trimestre{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 850px) {
+
+            .regras{
+            width: 100vw;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            text-align: center;
+         }   
+            h2{
+            font-size: 26px;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        h3{
+            font-size: 17px;
+            padding-right: 20px;
+            padding-left: 20px;
+            text-align: center;
+        }
+
+        .inputArea{
+            display: flex;
+            flex-wrap: wrap;
+            
+            
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="regras">
+        <h2>Este programa verifica se o aluno foi aprovado.</h2>
+        <h3>A média dos 4 trimestres do ano deve ser  ' 28 '  ou superior.</h3>
+    </h3>
+
+    </div>
+
+    <div class="inputArea">
+        <div class="trimestre">
+            <label for="1tri">1ª Nota</label>
+            <input id="1tri" type="number">
+        </div>
+        <div class="trimestre">
+            <label for="2tri">2ª Nota</label>
+            <input id="2tri" type="number">
+        </div>
+        <div class="trimestre">
+            <label for="3tri">3ª Nota</label>
+            <input id="3tri" type="number">
+        </div>
+        <div class="trimestre">
+            <label for="4tri">4ª Nota</label>
+            <input id="4tri" type="number">
+        </div>
+
+        <button onclick="verificar()" id="verificaNota">Verificar</button>
+    </div>
+
+    <div class="retorno">
+        <div class="notaFinal">
+            <h2>Resultado</h2>
+            <div class="nota">
+
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        function verificar(){
+            var nota1 = parseFloat(document.getElementById("1tri").value);
+            var nota2 = parseFloat(document.getElementById("2tri").value);
+            var nota3 = parseFloat(document.getElementById("3tri").value);
+            var nota4 = parseFloat(document.getElementById("4tri").value);
+
+            var notafinal = nota1 + nota2 + nota3 + nota4;
+  
+                if(notafinal >= 28){
+                    alert ('Parabens, Você foi aprovado');
+                }else{
+                    alert ('Infelizmente, Você não foi aprovado');
+                }
+        }
+    </script>
+</body>
+</html>
